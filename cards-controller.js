@@ -20,13 +20,13 @@ var marvelService = new MarvelService()
         var character = list[i];
         character.thumbnail.path = character.thumbnail.path.replace('http:', '')
         marvelTemplate += `
-      <div class="card">
-        <img src="${character.thumbnail.path}.${character.thumbnail.extension}" width="100">
-        <h3>${character.name}</h3>
-        <div>
-          <button class="btn-success" id="${character.id}" onclick="app.controllers.marvelController.add('${character.id}')">Add to Team</button>
+      <div class="card float-left" style="width:200px; height:350px">
+        <img class="card-img-top rounded-top" src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="card image">
+        <div class="card-body">
+          <h5 class="card-title">${character.name}</h5>
         </div>
-      <div>
+        <button class="btn btn-primary" id="${character.id}" onclick="app.controllers.marvelController.add('${character.id}')">Add to Team</button>
+      </div>
       `
 
         elem.innerHTML = marvelTemplate
